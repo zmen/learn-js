@@ -66,9 +66,13 @@
                 elem.onclick = subfunction;
             else if (type == "hover")
                 elem.onmouseover = subfunction;
+            else
+                return false;
         }
         
         var tab = function(option) {
+            if( !document.querySelectorAll(option.triggers)) return false;
+        
             var triggers = document.querySelectorAll(option.triggers)[0].children;
             var contents = document.querySelectorAll(option.contents)[0].children;
             triggers[option.activeIndex].className = option.activeTriggerClass;
